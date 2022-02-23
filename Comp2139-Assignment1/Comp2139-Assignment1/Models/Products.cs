@@ -1,4 +1,4 @@
-﻿namespace Sports.Models
+﻿namespace Comp2139_Assignment1.Models
 {
     public class Products
     {
@@ -6,9 +6,11 @@
 
         public string? ProductCode { get; set; }
 
-        public string? Name { get; set; }
+        public string? ProductName { get; set; }
 
-        public DateTime ReleaseDate { get; set; }
+        public string? ProductPrice { get; set; }
+
+        public DateTime ProductReleaseDate { get; set; }
 
     }
 }

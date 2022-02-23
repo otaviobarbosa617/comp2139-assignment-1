@@ -1,29 +1,27 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Sports.Models;
 
-namespace Sports.Controllers;
 
-public class HomeController : Controller
+namespace Comp2139_Assignment1.Controllers
 {
-    private readonly ILogger<HomeController> _logger;
+    public class HomeController : Controller
+    {
 
-    public HomeController(ILogger<HomeController> logger)
-    {
-        _logger = logger;
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult Products()
+        {
+            return View();
+        }
+        public IActionResult Technicians()
+        {
+            return View();
+        }
     }
 
-    public IActionResult Index()
-    {
-        return View();
-    }
-
-    public IActionResult Products()
-    {
-        return View();
-    }
-    public IActionResult Technicians()
-    {
-        return View();
-    }
 }
+
+
