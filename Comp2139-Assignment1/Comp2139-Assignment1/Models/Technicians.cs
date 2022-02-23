@@ -16,7 +16,5 @@ namespace Comp2139_Assignment1.Models
         [Required(ErrorMessage = "Technician needs a phone number")]
         public string? TecPhone { get; set; }
 
-
-
     }
 }

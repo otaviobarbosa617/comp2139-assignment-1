@@ -22,7 +22,8 @@ namespace Comp2139_Assignment1.Models
         [Required(ErrorMessage = "Customer needs to have a State")]
         public string? CustomerState { get; set; }
 
-        //TODO Country choice
+        [Required(ErrorMessage = "Customer needs to have a Country")]
+        public string? CustomerCountry { get; set; }
 
         public string? CustomerEmail { get; set; }
 
