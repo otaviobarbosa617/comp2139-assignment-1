@@ -20,6 +20,10 @@ namespace Comp2139_Assignment1.Controllers
         {
             return View();
         }
+        public IActionResult Customers()
+        {
+            return View();
+        }
     }
 
 }
