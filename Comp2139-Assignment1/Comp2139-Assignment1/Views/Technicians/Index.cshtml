@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Comp2139_Assignment1.Models.Technicians>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TecName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TecEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TecPhone)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TecName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TecEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TecPhone)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TecId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.TecId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.TecId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
