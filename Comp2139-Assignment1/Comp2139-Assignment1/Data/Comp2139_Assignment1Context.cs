@@ -18,5 +18,11 @@ namespace Comp2139_Assignment1.Data
         public DbSet<Comp2139_Assignment1.Models.Customers> Customers { get; set; }
 
         public DbSet<Comp2139_Assignment1.Models.Technicians> Technicians { get; set; }
+
+        public DbSet<Comp2139_Assignment1.Models.Products> Products { get; set; }
+
+        public DbSet<Comp2139_Assignment1.Models.Incident> Incidents { get; set; }
+
+
     }
 }
