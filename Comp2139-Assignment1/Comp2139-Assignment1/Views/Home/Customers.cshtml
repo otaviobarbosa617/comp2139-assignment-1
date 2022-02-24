@@ -1,23 +1,86 @@
 ﻿@page
 @model Customers
-@{
-    ViewData["Title"] = "Customers";
-}
+
 
 <h2>Add Customer</h2>
 
-<!--
-<form method="post">
-    <label asp-for="CustomerFirstName">First Name: </label>
-        <input type="text" asp-for="CustomerFirstName" name="first_name" />
+@*@using (Html.BeginForm("Submit", "Home", FormMethod.Post))
+{
+
+    @Html.TextBoxFor(model => model.CustomerFirstName)    
+    @Html.ValidationMessageFor(model => model.CustomerLastName)
+    <button type="submit">Add Customer</button>
+}*@
+
+<form method="post" action="">  <!--insert database on action-->
+    <div class="form-group row">
+        <label for="firstName" class="col-sm-2 col-form-label">First Name </label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="firstName" required>
+        </div>
+  </div>
+  <br />
+  <div class="form-group row">
+        <label for="lastName" class="col-sm-2 col-form-label">Last Name </label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="lastName" required>
+        </div>
+  </div>
+  <br />
+  <div class="form-group row">
+        <label for="address" class="col-sm-2 col-form-label">Address </label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="address" required>
+        </div>
+  </div>
+  <br />
+  <div class="form-group row">
+        <label for="city" class="col-sm-2 col-form-label">City </label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="city" required>
+        </div>
+  </div>
+  <br />
+  <div class="form-group row">
+        <label for="state" class="col-sm-2 col-form-label">State </label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="state" required>
+        </div>
+  </div>
+  <br />
+  <div class="form-group row">
+        <label for="postalCode" class="col-sm-2 col-form-label">Postal Code </label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="postalCode" required>
+        </div>
+  </div>
+  <br />
+  <div class="form-group row">
+        <label for="country" class="col-sm-2 col-form-label">Country </label>
+        <div class="col-sm-10">
+          <select id="country" class="form-control">
+            <option selected>Canada</option>         <!--foreach country??-->
+            <option>USA</option>
+            <option>Iceland</option>
+      </select>
+        </div>
+  </div>
+  <br />
+  <div class="form-group row">
+        <label for="email" class="col-sm-2 col-form-label">Email </label>
+        <div class="col-sm-10">
+          <input type="email" class="form-control" id="state" >
+        </div>
+  </div>
+  <br />
+  <div class="form-group row">
+        <label for="phone" class="col-sm-2 col-form-label">Phone </label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="phone" >
+        </div>
+  </div>
+  <br /><br />
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
-
-@using (Html.BeginForm("Subscribe", "Home", FormMethod.Post))
-{
-    @Html.TextBoxFor(model => model.CustomerFirstName)
-    @Html.ValidationMessageFor(model => model.CustomerLastName)
-    <button type="submit">Subscribe</button>
-}
-
--->
+ 
