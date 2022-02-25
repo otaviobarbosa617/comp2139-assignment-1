@@ -8,6 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Products\Details.cshtml" />
+    <Content Remove="Views\Technicians\Details.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.2">

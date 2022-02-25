@@ -4,24 +4,16 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Technician Manager</h1>
 
 <br />
-<p>
-    <a asp-action="Create" class= "btn btn-success">Create New</a>
-</p>
+
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.TechnicianName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TechnicianEmail)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TechnicianPhone)
-            </th>
+            <th>Technician Name</th>
+            <th>Technician Email</th>
+            <th>Technician Phone</th>
             <th></th>
         </tr>
     </thead>
@@ -38,11 +30,14 @@
                 @Html.DisplayFor(modelItem => item.TechnicianPhone)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.TechnicianId" class="btn btn-primary">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.TechnicianId" class="btn btn-secondary">Details</a> |
+                <a asp-action="Edit" asp-route-id="@item.TechnicianId" class="btn btn-primary">Edit</a>
                 <a asp-action="Delete" asp-route-id="@item.TechnicianId" class="btn btn-danger">Delete</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+<br />
+<p>
+    <a asp-action="Create" class= "btn btn-success">Add Technician</a>
+</p>

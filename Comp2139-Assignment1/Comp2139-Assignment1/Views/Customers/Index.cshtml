@@ -4,40 +4,21 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Customers List</h1>
+<h1>Customer Manager</h1>
+
 
 <br />
-<p>
-    <a asp-action="Create" class= "btn btn-success">Add Customer</a>
-</p>
-
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomerFirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomerLastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomerAddress)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomerCity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomerState)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomerCountry)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomerEmail)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomerPhone)
-            </th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Country</th>
+            <th>Email</th>
+            <th>Phone</th>
             <th></th>
         </tr>
     </thead>
@@ -71,11 +52,13 @@
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.CustomerId" class="btn btn-primary">Edit</a> 
-                <a asp-action="Details" asp-route-id="@item.CustomerId" class="btn btn-secondary">Details</a>
                 <a asp-action="Delete" asp-route-id="@item.CustomerId" class="btn btn-danger">Delete</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
-
+<br />
+<p>
+    <a asp-action="Create" class= "btn btn-success">Add Customer</a>
+</p>

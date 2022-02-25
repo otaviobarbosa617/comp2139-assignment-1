@@ -25,24 +25,6 @@ namespace Comp2139_Assignment1.Controllers
             return View(await _context.Technicians.ToListAsync());
         }
 
-        // GET: Technicians/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var technicians = await _context.Technicians
-                .FirstOrDefaultAsync(m => m.TechnicianId == id);
-            if (technicians == null)
-            {
-                return NotFound();
-            }
-
-            return View(technicians);
-        }
-
         // GET: Technicians/Create
         public IActionResult Create()
         {

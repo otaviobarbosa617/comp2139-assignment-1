@@ -25,24 +25,6 @@ namespace Comp2139_Assignment1.Controllers
             return View(await _context.Customers.ToListAsync());
         }
 
-        // GET: Customers/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var customers = await _context.Customers
-                .FirstOrDefaultAsync(m => m.CustomerId == id);
-            if (customers == null)
-            {
-                return NotFound();
-            }
-
-            return View(customers);
-        }
-
         // GET: Customers/Create
         public IActionResult Create()
         {

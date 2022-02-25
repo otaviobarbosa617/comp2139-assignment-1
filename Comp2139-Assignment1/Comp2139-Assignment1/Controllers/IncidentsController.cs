@@ -88,7 +88,7 @@ namespace Comp2139_Assignment1.Controllers
             {
                 return NotFound();
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerAddress", incident.CustomerId);
+            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerFirstName", incident.CustomerId);
             ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductCode", incident.ProductId);
             ViewData["TechnicianId"] = new SelectList(_context.Technicians, "TechnicianId", "TechnicianEmail", incident.TechnicianId);
             return View(incident);
