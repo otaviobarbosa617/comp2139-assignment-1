@@ -26,33 +26,12 @@ namespace Comp2139_Assignment1.Controllers
             return View(await comp2139_Assignment1Context.ToListAsync());
         }
 
-        // GET: Incidents/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var incident = await _context.Incidents
-                .Include(i => i.Customer)
-                .Include(i => i.Product)
-                .Include(i => i.Technician)
-                .FirstOrDefaultAsync(m => m.IncidentId == id);
-            if (incident == null)
-            {
-                return NotFound();
-            }
-
-            return View(incident);
-        }
-
         // GET: Incidents/Create
         public IActionResult Create()
         {
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId");
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId");
-            ViewData["TechnicianId"] = new SelectList(_context.Technicians, "TechnicianId", "TechnicianId");
+            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerFirstName");
+            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductName");
+            ViewData["TechnicianId"] = new SelectList(_context.Technicians, "TechnicianId", "TechnicianName");
             return View();
         }
 
@@ -69,9 +48,6 @@ namespace Comp2139_Assignment1.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerAddress", incident.CustomerId);
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductCode", incident.ProductId);
-            ViewData["TechnicianId"] = new SelectList(_context.Technicians, "TechnicianId", "TechnicianEmail", incident.TechnicianId);
             return View(incident);
         }
 

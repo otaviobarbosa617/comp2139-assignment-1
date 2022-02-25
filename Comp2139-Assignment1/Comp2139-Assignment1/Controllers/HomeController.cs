@@ -11,19 +11,6 @@ namespace Comp2139_Assignment1.Controllers
         {
             return View();
         }
-
-        public IActionResult Products()
-        {
-            return View();
-        }
-        public IActionResult Technicians()
-        {
-            return View();
-        }
-        public IActionResult Customers()
-        {
-            return View();
-        }
     }
 
 }

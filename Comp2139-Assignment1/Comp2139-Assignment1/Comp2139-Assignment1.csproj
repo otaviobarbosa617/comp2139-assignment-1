@@ -8,6 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Home\Products.cshtml" />
+    <Content Remove="Views\Home\Technicians.cshtml" />
+    <Content Remove="Views\Incidents\Details.cshtml" />
     <Content Remove="Views\Products\Details.cshtml" />
     <Content Remove="Views\Technicians\Details.cshtml" />
   </ItemGroup>

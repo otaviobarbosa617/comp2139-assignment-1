@@ -1,38 +1,22 @@
 ﻿@model IEnumerable<Comp2139_Assignment1.Models.Incident>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Incident Manager";
 }
 
-<h1>Index</h1>
+<h1>Incident Manager</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<br />
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Customer)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Product)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IncidentTitle)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IncidentDescription)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Technician)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IncidentDateOpened)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IncidentDateClosed)
-            </th>
+            <th>Customer</th>
+            <th>Product</th>
+            <th>Incident</th>
+            <th>Description</th>
+            <th>Technician</th>
+            <th>Date Opened</th>
+            <th>Date Closed</th>
             <th></th>
         </tr>
     </thead>
@@ -62,11 +46,14 @@
                 @Html.DisplayFor(modelItem => item.IncidentDateClosed)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IncidentId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IncidentId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IncidentId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.IncidentId" class="btn btn-primary">Edit</a>
+                <a asp-action="Delete" asp-route-id="@item.IncidentId" class="btn btn-danger">Delete</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+<br />
+<p>
+    <a asp-action="Create" class=" btn btn-success">Create New</a>
+</p>
