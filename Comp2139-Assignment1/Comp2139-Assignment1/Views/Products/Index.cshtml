@@ -6,6 +6,12 @@
 
 <h1>Product Manager</h1>
 
+<br />
+<p>
+    <a asp-action="Create" class= "btn btn-success">Add Product</a>
+</p>
+
+
 <table class="table">
     <thead>
         <tr>
@@ -33,13 +39,10 @@
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ProductId" class="btn btn-primary">Edit</a>
-                <a asp-action="Details" asp-route-id="@item.ProductId" class="btn btn-primary">Details</a>
-                <a asp-action="Delete" asp-route-id="@item.ProductId" class="btn btn-primary">Delete</a>
+                <a asp-action="Details" asp-route-id="@item.ProductId" class="btn btn-secondary">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.ProductId" class="btn btn-danger">Delete</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
-<p>
-    <a asp-action="Create" class="btn btn-primary">Add Product</a>
-</p>
