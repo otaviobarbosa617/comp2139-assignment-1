@@ -10,22 +10,22 @@ using Comp2139_Assignment1.Models;
 
 namespace Comp2139_Assignment1.Controllers
 {
-    public class TechniciansController : Controller
+    public class ProductsController : Controller
     {
         private readonly Comp2139_Assignment1Context _context;
 
-        public TechniciansController(Comp2139_Assignment1Context context)
+        public ProductsController(Comp2139_Assignment1Context context)
         {
             _context = context;
         }
 
-        // GET: Technicians
+        // GET: Products
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Technicians.ToListAsync());
+            return View(await _context.Products.ToListAsync());
         }
 
-        // GET: Technicians/Details/5
+        // GET: Products/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace Comp2139_Assignment1.Controllers
                 return NotFound();
             }
 
-            var technicians = await _context.Technicians
-                .FirstOrDefaultAsync(m => m.TecId == id);
-            if (technicians == null)
+            var products = await _context.Products
+                .FirstOrDefaultAsync(m => m.ProductId == id);
+            if (products == null)
             {
                 return NotFound();
             }
 
-            return View(technicians);
+            return View(products);
         }
 
-        // GET: Technicians/Create
+        // GET: Products/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Technicians/Create
+        // POST: Products/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TecId,TecName,TecEmail,TecPhone")] Technicians technicians)
+        public async Task<IActionResult> Create([Bind("ProductId,ProductCode,ProductName,ProductPrice,ProductReleaseDate")] Products products)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(technicians);
+                _context.Add(products);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(technicians);
+            return View(products);
         }
 
-        // GET: Technicians/Edit/5
+        // GET: Products/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace Comp2139_Assignment1.Controllers
                 return NotFound();
             }
 
-            var technicians = await _context.Technicians.FindAsync(id);
-            if (technicians == null)
+            var products = await _context.Products.FindAsync(id);
+            if (products == null)
             {
                 return NotFound();
             }
-            return View(technicians);
+            return View(products);
         }
 
-        // POST: Technicians/Edit/5
+        // POST: Products/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("TecId,TecName,TecEmail,TecPhone")] Technicians technicians)
+        public async Task<IActionResult> Edit(int id, [Bind("ProductId,ProductCode,ProductName,ProductPrice,ProductReleaseDate")] Products products)
         {
-            if (id != technicians.TecId)
+            if (id != products.ProductId)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace Comp2139_Assignment1.Controllers
             {
                 try
                 {
-                    _context.Update(technicians);
+                    _context.Update(products);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TechniciansExists(technicians.TecId))
+                    if (!ProductsExists(products.ProductId))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace Comp2139_Assignment1.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(technicians);
+            return View(products);
         }
 
-        // GET: Technicians/Delete/5
+        // GET: Products/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +124,30 @@ namespace Comp2139_Assignment1.Controllers
                 return NotFound();
             }
 
-            var technicians = await _context.Technicians
-                .FirstOrDefaultAsync(m => m.TecId == id);
-            if (technicians == null)
+            var products = await _context.Products
+                .FirstOrDefaultAsync(m => m.ProductId == id);
+            if (products == null)
             {
                 return NotFound();
             }
 
-            return View(technicians);
+            return View(products);
         }
 
-        // POST: Technicians/Delete/5
+        // POST: Products/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var technicians = await _context.Technicians.FindAsync(id);
-            _context.Technicians.Remove(technicians);
+            var products = await _context.Products.FindAsync(id);
+            _context.Products.Remove(products);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool TechniciansExists(int id)
+        private bool ProductsExists(int id)
         {
-            return _context.Technicians.Any(e => e.TecId == id);
+            return _context.Products.Any(e => e.ProductId == id);
         }
     }
 }

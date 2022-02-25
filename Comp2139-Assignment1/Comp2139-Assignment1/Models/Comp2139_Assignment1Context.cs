@@ -76,6 +76,7 @@ namespace Comp2139_Assignment1.Models
                     ProductId = 1,
                     IncidentTitle = "Fix Login",
                     IncidentDescription = "Create separated logins for users and admins",
+                    TechId = 1,
                     IncidentDateOpened = DateTime.Today
                 },
                 new Incident
@@ -84,6 +85,7 @@ namespace Comp2139_Assignment1.Models
                     CustomerId = 2,
                     ProductId = 1,
                     IncidentTitle = "Change overall theme",
+                    TechId= 1,
                     IncidentDescription = "Updated the whole visual",
                     IncidentDateOpened = DateTime.Today
                 }
