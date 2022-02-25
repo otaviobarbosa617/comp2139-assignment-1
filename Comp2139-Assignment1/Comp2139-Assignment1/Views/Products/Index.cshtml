@@ -1,29 +1,18 @@
 ﻿@model IEnumerable<Comp2139_Assignment1.Models.Products>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Product Manager";
 }
 
-<h1>Index</h1>
+<h1>Product Manager</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ProductCode)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProductName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProductPrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProductReleaseDate)
-            </th>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Release Date</th>
             <th></th>
         </tr>
     </thead>
@@ -43,11 +32,14 @@
                 @Html.DisplayFor(modelItem => item.ProductReleaseDate)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ProductId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.ProductId" class="btn btn-primary">Edit</a>
+                <a asp-action="Details" asp-route-id="@item.ProductId" class="btn btn-primary">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.ProductId" class="btn btn-primary">Delete</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Add Product</a>
+</p>
