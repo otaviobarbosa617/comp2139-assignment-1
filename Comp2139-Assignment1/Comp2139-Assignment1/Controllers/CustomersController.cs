@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Comp2139_Assignment1.Data;
 using Comp2139_Assignment1.Models;
 
 namespace Comp2139_Assignment1.Controllers

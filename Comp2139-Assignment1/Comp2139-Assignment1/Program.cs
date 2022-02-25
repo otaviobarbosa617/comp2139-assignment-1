@@ -1,6 +1,6 @@
+using Comp2139_Assignment1.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Comp2139_Assignment1.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<Comp2139_Assignment1Context>(options =>
@@ -28,5 +28,7 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
 
 app.Run();
