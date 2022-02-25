@@ -34,7 +34,7 @@ namespace Comp2139_Assignment1.Controllers
             }
 
             var technicians = await _context.Technicians
-                .FirstOrDefaultAsync(m => m.TecId == id);
+                .FirstOrDefaultAsync(m => m.TechnicianId == id);
             if (technicians == null)
             {
                 return NotFound();
@@ -54,7 +54,7 @@ namespace Comp2139_Assignment1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TecId,TecName,TecEmail,TecPhone")] Technicians technicians)
+        public async Task<IActionResult> Create([Bind("TechnicianId,TechnicianName,TechnicianEmail,TechnicianPhone")] Technicians technicians)
         {
             if (ModelState.IsValid)
             {
@@ -86,9 +86,9 @@ namespace Comp2139_Assignment1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("TecId,TecName,TecEmail,TecPhone")] Technicians technicians)
+        public async Task<IActionResult> Edit(int id, [Bind("TechnicianId,TechnicianName,TechnicianEmail,TechnicianPhone")] Technicians technicians)
         {
-            if (id != technicians.TecId)
+            if (id != technicians.TechnicianId)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace Comp2139_Assignment1.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TechniciansExists(technicians.TecId))
+                    if (!TechniciansExists(technicians.TechnicianId))
                     {
                         return NotFound();
                     }
@@ -125,7 +125,7 @@ namespace Comp2139_Assignment1.Controllers
             }
 
             var technicians = await _context.Technicians
-                .FirstOrDefaultAsync(m => m.TecId == id);
+                .FirstOrDefaultAsync(m => m.TechnicianId == id);
             if (technicians == null)
             {
                 return NotFound();
@@ -147,7 +147,7 @@ namespace Comp2139_Assignment1.Controllers
 
         private bool TechniciansExists(int id)
         {
-            return _context.Technicians.Any(e => e.TecId == id);
+            return _context.Technicians.Any(e => e.TechnicianId == id);
         }
     }
 }

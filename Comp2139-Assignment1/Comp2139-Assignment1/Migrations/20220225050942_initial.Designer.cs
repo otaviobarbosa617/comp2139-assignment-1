@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Comp2139_Assignment1.Migrations
 {
     [DbContext(typeof(Comp2139_Assignment1Context))]
-    [Migration("20220225003910_Initial")]
-    partial class Initial
+    [Migration("20220225050942_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -121,10 +121,7 @@ namespace Comp2139_Assignment1.Migrations
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TechId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("TechnicianTecId")
+                    b.Property<int>("TechnicianId")
                         .HasColumnType("int");
 
                     b.HasKey("IncidentId");
@@ -133,7 +130,7 @@ namespace Comp2139_Assignment1.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.HasIndex("TechnicianTecId");
+                    b.HasIndex("TechnicianId");
 
                     b.ToTable("Incidents");
 
@@ -142,21 +139,21 @@ namespace Comp2139_Assignment1.Migrations
                         {
                             IncidentId = 1,
                             CustomerId = 1,
-                            IncidentDateOpened = new DateTime(2022, 2, 24, 0, 0, 0, 0, DateTimeKind.Local),
+                            IncidentDateOpened = new DateTime(2022, 2, 25, 0, 0, 0, 0, DateTimeKind.Local),
                             IncidentDescription = "Create separated logins for users and admins",
                             IncidentTitle = "Fix Login",
                             ProductId = 1,
-                            TechId = 0
+                            TechnicianId = 1
                         },
                         new
                         {
                             IncidentId = 2,
                             CustomerId = 2,
-                            IncidentDateOpened = new DateTime(2022, 2, 24, 0, 0, 0, 0, DateTimeKind.Local),
+                            IncidentDateOpened = new DateTime(2022, 2, 25, 0, 0, 0, 0, DateTimeKind.Local),
                             IncidentDescription = "Updated the whole visual",
                             IncidentTitle = "Change overall theme",
                             ProductId = 1,
-                            TechId = 0
+                            TechnicianId = 2
                         });
                 });
 
@@ -194,41 +191,48 @@ namespace Comp2139_Assignment1.Migrations
                             ProductCode = "1Sport",
                             ProductName = "Sport One - Team Management",
                             ProductPrice = "29.99",
-                            ProductReleaseDate = new DateTime(2022, 2, 24, 0, 0, 0, 0, DateTimeKind.Local)
+                            ProductReleaseDate = new DateTime(2022, 2, 25, 0, 0, 0, 0, DateTimeKind.Local)
                         });
                 });
 
             modelBuilder.Entity("Comp2139_Assignment1.Models.Technicians", b =>
                 {
-                    b.Property<int>("TecId")
+                    b.Property<int>("TechnicianId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TecId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TechnicianId"), 1L, 1);
 
-                    b.Property<string>("TecEmail")
+                    b.Property<string>("TechnicianEmail")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TecName")
+                    b.Property<string>("TechnicianName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TecPhone")
+                    b.Property<string>("TechnicianPhone")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("TecId");
+                    b.HasKey("TechnicianId");
 
                     b.ToTable("Technicians");
 
                     b.HasData(
                         new
                         {
-                            TecId = 1,
-                            TecEmail = "otavio.pereirabarbosa@georgebrown.ca",
-                            TecName = "Otavio Barbosa",
-                            TecPhone = "647-562-3407"
+                            TechnicianId = 1,
+                            TechnicianEmail = "otavio.pereirabarbosa@georgebrown.ca",
+                            TechnicianName = "Otavio Barbosa",
+                            TechnicianPhone = "647-562-3407"
+                        },
+                        new
+                        {
+                            TechnicianId = 2,
+                            TechnicianEmail = "test@test.com",
+                            TechnicianName = "Roger Gracie",
+                            TechnicianPhone = "647-562-3407"
                         });
                 });
 
@@ -248,7 +252,9 @@ namespace Comp2139_Assignment1.Migrations
 
                     b.HasOne("Comp2139_Assignment1.Models.Technicians", "Technician")
                         .WithMany()
-                        .HasForeignKey("TechnicianTecId");
+                        .HasForeignKey("TechnicianId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Customer");
 

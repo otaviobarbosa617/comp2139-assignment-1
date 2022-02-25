@@ -6,6 +6,7 @@ namespace Comp2139_Assignment1.Models
     {
         [Key]
         public int IncidentId { get; set; }
+
         public int CustomerId { get; set; }
 
         [Required (ErrorMessage = "Incident needs a customer")]
@@ -22,18 +23,14 @@ namespace Comp2139_Assignment1.Models
         [Required(ErrorMessage = "Incident needs a description")]
         public string? IncidentDescription { get; set; }
 
-        public int TechId { get; set; }
+        public int TechnicianId { get; set; }
 
+        [Required(ErrorMessage = "Incident needs a Technician")]
         public Technicians? Technician { get; set; }
 
         public DateTime IncidentDateOpened { get; set; }
 
         public DateTime? IncidentDateClosed { get; set; }
-
-        public Incident()
-        {
-            this.IncidentDateOpened = DateTime.Now;
-        }
 
     }
 }
