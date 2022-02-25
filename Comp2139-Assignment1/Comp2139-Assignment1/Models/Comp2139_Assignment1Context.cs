@@ -50,10 +50,17 @@ namespace Comp2139_Assignment1.Models
             modelBuilder.Entity<Technicians>().HasData(
                 new Technicians
                 {
-                    TecId = 1,
-                    TecName = "Otavio Barbosa",
-                    TecEmail = "otavio.pereirabarbosa@georgebrown.ca",
-                    TecPhone = "647-562-3407"
+                    TechnicianId = 1,
+                    TechnicianName = "Otavio Barbosa",
+                    TechnicianEmail = "otavio.pereirabarbosa@georgebrown.ca",
+                    TechnicianPhone = "647-562-3407"
+                },
+                new Technicians
+                {
+                    TechnicianId = 2,
+                    TechnicianName = "Roger Gracie",
+                    TechnicianEmail = "test@test.com",
+                    TechnicianPhone = "647-562-3407"
                 }
             );
 
@@ -74,9 +81,9 @@ namespace Comp2139_Assignment1.Models
                     IncidentId = 1,
                     CustomerId = 1,
                     ProductId = 1,
+                    TechnicianId = 1,
                     IncidentTitle = "Fix Login",
                     IncidentDescription = "Create separated logins for users and admins",
-                    TechId = 1,
                     IncidentDateOpened = DateTime.Today
                 },
                 new Incident
@@ -84,8 +91,8 @@ namespace Comp2139_Assignment1.Models
                     IncidentId = 2,
                     CustomerId = 2,
                     ProductId = 1,
+                    TechnicianId = 2,
                     IncidentTitle = "Change overall theme",
-                    TechId= 1,
                     IncidentDescription = "Updated the whole visual",
                     IncidentDateOpened = DateTime.Today
                 }

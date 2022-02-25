@@ -5,16 +5,16 @@ namespace Comp2139_Assignment1.Models
     public class Technicians
     {
         [Key]
-        public int TecId { get; set; }
+        public int TechnicianId { get; set; }
 
         [Required (ErrorMessage = "Technician needs a name")]
-        public string? TecName { get; set; }
+        public string? TechnicianName { get; set; }
 
         [Required(ErrorMessage = "Technician needs an email")]
-        public string? TecEmail { get; set; }
+        public string? TechnicianEmail { get; set; }
 
         [Required(ErrorMessage = "Technician needs a phone number")]
-        public string? TecPhone { get; set; }
+        public string? TechnicianPhone { get; set; }
 
     }
 }

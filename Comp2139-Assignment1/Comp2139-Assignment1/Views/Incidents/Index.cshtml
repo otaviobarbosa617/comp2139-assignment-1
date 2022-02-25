@@ -25,7 +25,7 @@
                 @Html.DisplayNameFor(model => model.IncidentDescription)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TechId)
+                @Html.DisplayNameFor(model => model.Technician)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.IncidentDateOpened)
@@ -40,7 +40,8 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Customer.CustomerAddress)
+                @Html.DisplayFor(modelItem => item.Customer.CustomerFirstName)
+                @Html.DisplayFor(modelItem => item.Customer.CustomerLastName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Product.ProductCode)
@@ -52,10 +53,10 @@
                 @Html.DisplayFor(modelItem => item.IncidentDescription)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TechId)
+                @Html.DisplayFor(modelItem => item.Technician.TechnicianName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IncidentDateOpened)
+                @Html.DisplayFor(modelItem => item.IncidentDateOpened.Date)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IncidentDateClosed)

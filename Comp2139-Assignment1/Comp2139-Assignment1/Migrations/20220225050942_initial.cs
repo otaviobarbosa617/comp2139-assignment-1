@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Comp2139_Assignment1.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -49,15 +49,15 @@ namespace Comp2139_Assignment1.Migrations
                 name: "Technicians",
                 columns: table => new
                 {
-                    TecId = table.Column<int>(type: "int", nullable: false)
+                    TechnicianId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    TecName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TecEmail = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TecPhone = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    TechnicianName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TechnicianEmail = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TechnicianPhone = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Technicians", x => x.TecId);
+                    table.PrimaryKey("PK_Technicians", x => x.TechnicianId);
                 });
 
             migrationBuilder.CreateTable(
@@ -70,8 +70,7 @@ namespace Comp2139_Assignment1.Migrations
                     ProductId = table.Column<int>(type: "int", nullable: false),
                     IncidentTitle = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IncidentDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TechId = table.Column<int>(type: "int", nullable: false),
-                    TechnicianTecId = table.Column<int>(type: "int", nullable: true),
+                    TechnicianId = table.Column<int>(type: "int", nullable: false),
                     IncidentDateOpened = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IncidentDateClosed = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
@@ -91,10 +90,11 @@ namespace Comp2139_Assignment1.Migrations
                         principalColumn: "ProductId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Incidents_Technicians_TechnicianTecId",
-                        column: x => x.TechnicianTecId,
+                        name: "FK_Incidents_Technicians_TechnicianId",
+                        column: x => x.TechnicianId,
                         principalTable: "Technicians",
-                        principalColumn: "TecId");
+                        principalColumn: "TechnicianId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
@@ -109,22 +109,26 @@ namespace Comp2139_Assignment1.Migrations
             migrationBuilder.InsertData(
                 table: "Products",
                 columns: new[] { "ProductId", "ProductCode", "ProductName", "ProductPrice", "ProductReleaseDate" },
-                values: new object[] { 1, "1Sport", "Sport One - Team Management", "29.99", new DateTime(2022, 2, 24, 0, 0, 0, 0, DateTimeKind.Local) });
+                values: new object[] { 1, "1Sport", "Sport One - Team Management", "29.99", new DateTime(2022, 2, 25, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.InsertData(
                 table: "Technicians",
-                columns: new[] { "TecId", "TecEmail", "TecName", "TecPhone" },
-                values: new object[] { 1, "otavio.pereirabarbosa@georgebrown.ca", "Otavio Barbosa", "647-562-3407" });
+                columns: new[] { "TechnicianId", "TechnicianEmail", "TechnicianName", "TechnicianPhone" },
+                values: new object[,]
+                {
+                    { 1, "otavio.pereirabarbosa@georgebrown.ca", "Otavio Barbosa", "647-562-3407" },
+                    { 2, "test@test.com", "Roger Gracie", "647-562-3407" }
+                });
 
             migrationBuilder.InsertData(
                 table: "Incidents",
-                columns: new[] { "IncidentId", "CustomerId", "IncidentDateClosed", "IncidentDateOpened", "IncidentDescription", "IncidentTitle", "ProductId", "TechId", "TechnicianTecId" },
-                values: new object[] { 1, 1, null, new DateTime(2022, 2, 24, 0, 0, 0, 0, DateTimeKind.Local), "Create separated logins for users and admins", "Fix Login", 1, 0, null });
+                columns: new[] { "IncidentId", "CustomerId", "IncidentDateClosed", "IncidentDateOpened", "IncidentDescription", "IncidentTitle", "ProductId", "TechnicianId" },
+                values: new object[] { 1, 1, null, new DateTime(2022, 2, 25, 0, 0, 0, 0, DateTimeKind.Local), "Create separated logins for users and admins", "Fix Login", 1, 1 });
 
             migrationBuilder.InsertData(
                 table: "Incidents",
-                columns: new[] { "IncidentId", "CustomerId", "IncidentDateClosed", "IncidentDateOpened", "IncidentDescription", "IncidentTitle", "ProductId", "TechId", "TechnicianTecId" },
-                values: new object[] { 2, 2, null, new DateTime(2022, 2, 24, 0, 0, 0, 0, DateTimeKind.Local), "Updated the whole visual", "Change overall theme", 1, 0, null });
+                columns: new[] { "IncidentId", "CustomerId", "IncidentDateClosed", "IncidentDateOpened", "IncidentDescription", "IncidentTitle", "ProductId", "TechnicianId" },
+                values: new object[] { 2, 2, null, new DateTime(2022, 2, 25, 0, 0, 0, 0, DateTimeKind.Local), "Updated the whole visual", "Change overall theme", 1, 2 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Incidents_CustomerId",
@@ -137,9 +141,9 @@ namespace Comp2139_Assignment1.Migrations
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Incidents_TechnicianTecId",
+                name: "IX_Incidents_TechnicianId",
                 table: "Incidents",
-                column: "TechnicianTecId");
+                column: "TechnicianId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

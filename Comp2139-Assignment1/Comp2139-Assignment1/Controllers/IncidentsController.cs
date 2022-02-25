@@ -22,7 +22,7 @@ namespace Comp2139_Assignment1.Controllers
         // GET: Incidents
         public async Task<IActionResult> Index()
         {
-            var comp2139_Assignment1Context = _context.Incidents.Include(i => i.Customer).Include(i => i.Product);
+            var comp2139_Assignment1Context = _context.Incidents.Include(i => i.Customer).Include(i => i.Product).Include(i => i.Technician);
             return View(await comp2139_Assignment1Context.ToListAsync());
         }
 
@@ -37,6 +37,7 @@ namespace Comp2139_Assignment1.Controllers
             var incident = await _context.Incidents
                 .Include(i => i.Customer)
                 .Include(i => i.Product)
+                .Include(i => i.Technician)
                 .FirstOrDefaultAsync(m => m.IncidentId == id);
             if (incident == null)
             {
@@ -49,8 +50,9 @@ namespace Comp2139_Assignment1.Controllers
         // GET: Incidents/Create
         public IActionResult Create()
         {
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerAddress");
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductCode");
+            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId");
+            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId");
+            ViewData["TechnicianId"] = new SelectList(_context.Technicians, "TechnicianId", "TechnicianId");
             return View();
         }
 
@@ -59,7 +61,7 @@ namespace Comp2139_Assignment1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IncidentId,CustomerId,ProductId,IncidentTitle,IncidentDescription,TechId,IncidentDateOpened,IncidentDateClosed")] Incident incident)
+        public async Task<IActionResult> Create([Bind("IncidentId,CustomerId,ProductId,IncidentTitle,IncidentDescription,TechnicianId,IncidentDateOpened,IncidentDateClosed")] Incident incident)
         {
             if (ModelState.IsValid)
             {
@@ -69,6 +71,7 @@ namespace Comp2139_Assignment1.Controllers
             }
             ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerAddress", incident.CustomerId);
             ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductCode", incident.ProductId);
+            ViewData["TechnicianId"] = new SelectList(_context.Technicians, "TechnicianId", "TechnicianEmail", incident.TechnicianId);
             return View(incident);
         }
 
@@ -87,6 +90,7 @@ namespace Comp2139_Assignment1.Controllers
             }
             ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerAddress", incident.CustomerId);
             ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductCode", incident.ProductId);
+            ViewData["TechnicianId"] = new SelectList(_context.Technicians, "TechnicianId", "TechnicianEmail", incident.TechnicianId);
             return View(incident);
         }
 
@@ -95,7 +99,7 @@ namespace Comp2139_Assignment1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IncidentId,CustomerId,ProductId,IncidentTitle,IncidentDescription,TechId,IncidentDateOpened,IncidentDateClosed")] Incident incident)
+        public async Task<IActionResult> Edit(int id, [Bind("IncidentId,CustomerId,ProductId,IncidentTitle,IncidentDescription,TechnicianId,IncidentDateOpened,IncidentDateClosed")] Incident incident)
         {
             if (id != incident.IncidentId)
             {
@@ -124,6 +128,7 @@ namespace Comp2139_Assignment1.Controllers
             }
             ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerAddress", incident.CustomerId);
             ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductCode", incident.ProductId);
+            ViewData["TechnicianId"] = new SelectList(_context.Technicians, "TechnicianId", "TechnicianEmail", incident.TechnicianId);
             return View(incident);
         }
 
@@ -138,6 +143,7 @@ namespace Comp2139_Assignment1.Controllers
             var incident = await _context.Incidents
                 .Include(i => i.Customer)
                 .Include(i => i.Product)
+                .Include(i => i.Technician)
                 .FirstOrDefaultAsync(m => m.IncidentId == id);
             if (incident == null)
             {
