@@ -6,9 +6,12 @@ namespace Comp2139_Assignment1.Models
     {
         [Key]
         public int IncidentId { get; set; }
+        public int CustomerId { get; set; }
 
         [Required (ErrorMessage = "Incident needs a customer")]
         public Customers? Customer { get; set; }
+
+        public int ProductId { get; set; }
 
         [Required(ErrorMessage = "Incident needs a product")]
         public Products? Product { get; set; }
@@ -18,6 +21,8 @@ namespace Comp2139_Assignment1.Models
 
         [Required(ErrorMessage = "Incident needs a description")]
         public string? IncidentDescription { get; set; }
+
+        public int TechId { get; set; }
 
         public Technicians? Technician { get; set; }
 
