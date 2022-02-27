@@ -29,9 +29,10 @@ namespace Comp2139_Assignment1.Controllers
         // GET: Incidents/Create
         public IActionResult Create()
         {
+            //Values for viewbag on incident form follow: context.model, bindId, valueToBeShowtoUser
             ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerFirstName");
-            ViewData["ProductName"] = new SelectList(_context.Products, "ProductId", "ProductId");
-            ViewData["TechnicianName"] = new SelectList(_context.Technicians, "TechnicianId", "TechnicianId");
+            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductName");
+            ViewData["TechnicianId"] = new SelectList(_context.Technicians, "TechnicianId", "TechnicianName");
             return View();
         }
 
@@ -40,14 +41,19 @@ namespace Comp2139_Assignment1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IncidentId,CustomerId,ProductId,IncidentTitle,IncidentDescription,TechnicianId,IncidentDateOpened,IncidentDateClosed")] Incident incident)
         {
+
             if (ModelState.IsValid)
             {
-               
                 _context.Add(incident);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(incident);
+            else
+            {
+                //in case of error of validation, it calls back the create method with the get items
+                return Create();
+            }
+            
         }
 
         // GET: Incidents/Edit/5
@@ -69,9 +75,7 @@ namespace Comp2139_Assignment1.Controllers
             return View(incident);
         }
 
-        // POST: Incidents/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IncidentId,CustomerId,ProductId,IncidentTitle,IncidentDescription,TechnicianId,IncidentDateOpened,IncidentDateClosed")] Incident incident)

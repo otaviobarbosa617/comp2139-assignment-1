@@ -40,7 +40,9 @@
                 @Html.DisplayFor(modelItem => item.Technician.TechnicianName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IncidentDateOpened.Date)
+                @Html.DisplayFor(modelItem => item.IncidentDateOpened.Day)/
+                @Html.DisplayFor(modelItem => item.IncidentDateOpened.Month)/
+                @Html.DisplayFor(modelItem => item.IncidentDateOpened.Year)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IncidentDateClosed)

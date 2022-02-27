@@ -109,7 +109,7 @@ namespace Comp2139_Assignment1.Migrations
             migrationBuilder.InsertData(
                 table: "Products",
                 columns: new[] { "ProductId", "ProductCode", "ProductName", "ProductPrice", "ProductReleaseDate" },
-                values: new object[] { 1, "1Sport", "Sport One - Team Management", "29.99", new DateTime(2022, 2, 25, 0, 0, 0, 0, DateTimeKind.Local) });
+                values: new object[] { 1, "1Sport", "Sport One - Team Management", "29.99", new DateTime(2022, 2, 27, 0, 0, 0, 0, DateTimeKind.Local) });
 
             migrationBuilder.InsertData(
                 table: "Technicians",
@@ -123,12 +123,12 @@ namespace Comp2139_Assignment1.Migrations
             migrationBuilder.InsertData(
                 table: "Incidents",
                 columns: new[] { "IncidentId", "CustomerId", "IncidentDateClosed", "IncidentDateOpened", "IncidentDescription", "IncidentTitle", "ProductId", "TechnicianId" },
-                values: new object[] { 1, 1, null, new DateTime(2022, 2, 25, 0, 0, 0, 0, DateTimeKind.Local), "Create separated logins for users and admins", "Fix Login", 1, 1 });
+                values: new object[] { 1, 1, null, new DateTime(2022, 2, 27, 0, 0, 0, 0, DateTimeKind.Local), "Create separated logins for users and admins", "Fix Login", 1, 1 });
 
             migrationBuilder.InsertData(
                 table: "Incidents",
                 columns: new[] { "IncidentId", "CustomerId", "IncidentDateClosed", "IncidentDateOpened", "IncidentDescription", "IncidentTitle", "ProductId", "TechnicianId" },
-                values: new object[] { 2, 2, null, new DateTime(2022, 2, 25, 0, 0, 0, 0, DateTimeKind.Local), "Updated the whole visual", "Change overall theme", 1, 2 });
+                values: new object[] { 2, 2, null, new DateTime(2022, 2, 27, 0, 0, 0, 0, DateTimeKind.Local), "Updated the whole visual", "Change overall theme", 1, 2 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Incidents_CustomerId",

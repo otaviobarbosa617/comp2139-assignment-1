@@ -7,6 +7,7 @@ namespace Comp2139_Assignment1.Models
         [Key]
         public int IncidentId { get; set; }
 
+        [Required(ErrorMessage = "Test Controller Id")]
         public int CustomerId { get; set; }
 
         public Customers? Customer { get; set; }

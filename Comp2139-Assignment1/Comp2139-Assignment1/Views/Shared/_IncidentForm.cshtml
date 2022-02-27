@@ -32,7 +32,7 @@
                 else
                 {
                     <div class="col-sm-10">
-                        <input asp-for="CustomerId" class="form-control" asp-items="@ViewBag.CustomerName" />
+                        <input asp-for="CustomerId" class="form-control" asp-items="@ViewBag.CustomerId" />
                         <span asp-validation-for="Customer" class="text-danger"></span>
                     </div>
                 }
@@ -44,14 +44,14 @@
                 @if(title == "Create")
                 {
                     <div class="col-sm-10">
-                        <select asp-for="ProductId" class="form-control" asp-items="@ViewBag.ProductName"></select>
+                        <select asp-for="ProductId" class="form-control" asp-items="@ViewBag.ProductId"></select>
                         <span asp-validation-for="Product" class="text-danger"></span>
                     </div>
                 }
                 else
                 {
                     <div class="col-sm-10">
-                        <input asp-for="ProductId" class="form-control" asp-items="@ViewBag.ProductName" />
+                        <input asp-for="ProductId" class="form-control" asp-items="@ViewBag.ProductId" />
                         <span asp-validation-for="Product" class="text-danger"></span>
                     </div>
                 }
@@ -81,14 +81,14 @@
                 @if(title == "Create")
                 {
                     <div class="col-sm-10">
-                        <select asp-for="TechnicianId" class="form-control" asp-items="@ViewBag.TechnicianName"></select>
+                        <select asp-for="TechnicianId" class="form-control" asp-items="@ViewBag.TechnicianId"></select>
                         <span asp-validation-for="Technician" class="text-danger"></span>
                     </div>
                 }
                 else
                 {
                     <div class="col-sm-10">
-                        <input asp-for="TechnicianId" class="form-control" asp-items="@ViewBag.TechnicianName" />
+                        <input asp-for="TechnicianId" class="form-control" asp-items="@ViewBag.TechnicianId" />
                         <span asp-validation-for="Technician" class="text-danger"></span>
                     </div>
                 }
@@ -117,7 +117,6 @@
                 <label asp-for="IncidentDateClosed" class="col-sm-2 col-form-label">Date Closed:</label>
                 <div class="col-sm-10">
                     <input asp-for="IncidentDateClosed" class="form-control" />
-                    <span asp-validation-for="IncidentDateClosed" class="text-danger"></span>
                 </div>
             </div>
                 

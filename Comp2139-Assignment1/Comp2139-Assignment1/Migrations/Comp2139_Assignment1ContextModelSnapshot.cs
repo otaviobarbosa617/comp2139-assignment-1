@@ -137,7 +137,7 @@ namespace Comp2139_Assignment1.Migrations
                         {
                             IncidentId = 1,
                             CustomerId = 1,
-                            IncidentDateOpened = new DateTime(2022, 2, 25, 0, 0, 0, 0, DateTimeKind.Local),
+                            IncidentDateOpened = new DateTime(2022, 2, 27, 0, 0, 0, 0, DateTimeKind.Local),
                             IncidentDescription = "Create separated logins for users and admins",
                             IncidentTitle = "Fix Login",
                             ProductId = 1,
@@ -147,7 +147,7 @@ namespace Comp2139_Assignment1.Migrations
                         {
                             IncidentId = 2,
                             CustomerId = 2,
-                            IncidentDateOpened = new DateTime(2022, 2, 25, 0, 0, 0, 0, DateTimeKind.Local),
+                            IncidentDateOpened = new DateTime(2022, 2, 27, 0, 0, 0, 0, DateTimeKind.Local),
                             IncidentDescription = "Updated the whole visual",
                             IncidentTitle = "Change overall theme",
                             ProductId = 1,
@@ -189,7 +189,7 @@ namespace Comp2139_Assignment1.Migrations
                             ProductCode = "1Sport",
                             ProductName = "Sport One - Team Management",
                             ProductPrice = "29.99",
-                            ProductReleaseDate = new DateTime(2022, 2, 25, 0, 0, 0, 0, DateTimeKind.Local)
+                            ProductReleaseDate = new DateTime(2022, 2, 27, 0, 0, 0, 0, DateTimeKind.Local)
                         });
                 });
 
