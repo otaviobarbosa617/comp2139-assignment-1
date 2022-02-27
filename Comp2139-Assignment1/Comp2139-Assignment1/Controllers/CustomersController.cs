@@ -1,9 +1,4 @@
-﻿#nullable disable
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Comp2139_Assignment1.Models;
@@ -28,13 +23,11 @@ namespace Comp2139_Assignment1.Controllers
         // GET: Customers/Create
         public IActionResult Create()
         {
-            ViewData["CustomerCountry"] = new SelectList(_context.Customers, "CustomerCountry", "CustomerCountry");
+            SelectCountry();
             return View();
         }
 
         // POST: Customers/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CustomerId,CustomerFirstName,CustomerLastName,CustomerAddress,CustomerCity,CustomerState,CustomerCountry,CustomerEmail,CustomerPhone")] Customers customers)
@@ -65,8 +58,6 @@ namespace Comp2139_Assignment1.Controllers
         }
 
         // POST: Customers/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("CustomerId,CustomerFirstName,CustomerLastName,CustomerAddress,CustomerCity,CustomerState,CustomerCountry,CustomerEmail,CustomerPhone")] Customers customers)
@@ -131,6 +122,16 @@ namespace Comp2139_Assignment1.Controllers
         private bool CustomersExists(int id)
         {
             return _context.Customers.Any(e => e.CustomerId == id);
+        }
+
+        public ActionResult SelectCountry()
+        {
+            List<SelectListItem> countries = new List<SelectListItem>();
+            countries.Add(new SelectListItem { Text = "Canada", Value = "Canada" });
+            countries.Add(new SelectListItem { Text = "USA", Value = "USA" });
+            countries.Add(new SelectListItem { Text = "Mexico", Value = "Mexico" });
+            ViewBag.Country = countries;
+            return View();
         }
     }
 }
