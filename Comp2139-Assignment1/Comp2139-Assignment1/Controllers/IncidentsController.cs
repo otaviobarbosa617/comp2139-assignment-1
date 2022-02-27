@@ -30,20 +30,19 @@ namespace Comp2139_Assignment1.Controllers
         public IActionResult Create()
         {
             ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerFirstName");
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductName");
-            ViewData["TechnicianId"] = new SelectList(_context.Technicians, "TechnicianId", "TechnicianName");
+            ViewData["ProductName"] = new SelectList(_context.Products, "ProductId", "ProductId");
+            ViewData["TechnicianName"] = new SelectList(_context.Technicians, "TechnicianId", "TechnicianId");
             return View();
         }
 
         // POST: Incidents/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IncidentId,CustomerId,ProductId,IncidentTitle,IncidentDescription,TechnicianId,IncidentDateOpened,IncidentDateClosed")] Incident incident)
         {
             if (ModelState.IsValid)
             {
+               
                 _context.Add(incident);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
