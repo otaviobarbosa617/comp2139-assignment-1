@@ -5,7 +5,7 @@
 
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col">
         <form asp-action=@ViewData["Title"]>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             @if(title == "Edit")
@@ -15,7 +15,7 @@
 
             <br />
             <div class="form-group row">
-                <label asp-for="CustomerFirstName" class="col-sm-2 col-form-label">First Name</label>
+                <label asp-for="CustomerFirstName" class="col-sm-2 col-form-label">First Name:</label>
                 <div class="col-sm-10">
                     <input asp-for="CustomerFirstName" class="form-control" />
                     <span asp-validation-for="CustomerFirstName" class="text-danger"></span>
@@ -24,7 +24,7 @@
 
             <br />
             <div class="form-group row">
-                <label asp-for="CustomerLastName" class="col-sm-2 col-form-label">Last Name</label>
+                <label asp-for="CustomerLastName" class="col-sm-2 col-form-label">Last Name:</label>
                 <div class="col-sm-10">
                     <input asp-for="CustomerLastName" class="form-control" />
                     <span asp-validation-for="CustomerLastName" class="text-danger"></span>
@@ -33,7 +33,7 @@
 
              <br />
             <div class="form-group row">
-                <label asp-for="CustomerAddress" class="col-sm-2 col-form-label">Address</label>
+                <label asp-for="CustomerAddress" class="col-sm-2 col-form-label">Address:</label>
                 <div class="col-sm-10">
                 <input asp-for="CustomerAddress" class="form-control" />
                 <span asp-validation-for="CustomerAddress" class="text-danger"></span>
@@ -42,7 +42,7 @@
 
              <br />
             <div class="form-group row">
-                <label asp-for="CustomerCity" class="col-sm-2 col-form-label">City</label>
+                <label asp-for="CustomerCity" class="col-sm-2 col-form-label">City:</label>
                 <div class="col-sm-10">
                     <input asp-for="CustomerCity" class="form-control" />
                     <span asp-validation-for="CustomerCity" class="text-danger"></span>
@@ -51,7 +51,7 @@
 
              <br />
             <div class="form-group row">
-                <label asp-for="CustomerState" class="col-sm-2 col-form-label">State</label>
+                <label asp-for="CustomerState" class="col-sm-2 col-form-label">State:</label>
                 <div class="col-sm-10">
                     <input asp-for="CustomerState" class="form-control" />
                     <span asp-validation-for="CustomerState" class="text-danger"></span>
@@ -60,7 +60,7 @@
 
              <br />
             <div class="form-group row">
-                <label asp-for="CustomerCountry" class="col-sm-2 col-form-label">Country</label>
+                <label asp-for="CustomerCountry" class="col-sm-2 col-form-label">Country:</label>
                 <div class="col-sm-10">
                     <input asp-for="CustomerCountry" class="form-control" />
                     <span asp-validation-for="CustomerCountry" class="text-danger"></span>
@@ -69,7 +69,7 @@
 
              <br />
             <div class="form-group row">
-                <label asp-for="CustomerEmail" class="col-sm-2 col-form-label">Email</label>
+                <label asp-for="CustomerEmail" class="col-sm-2 col-form-label">Email:</label>
                 <div class="col-sm-10">
                     <input asp-for="CustomerEmail" class="form-control" />
                     <span asp-validation-for="CustomerEmail" class="text-danger"></span>
@@ -78,7 +78,7 @@
 
              <br />
             <div class="form-group row">
-                <label asp-for="CustomerPhone" class="col-sm-2 col-form-label">Phone</label>
+                <label asp-for="CustomerPhone" class="col-sm-2 col-form-label">Phone:</label>
                 <div class="col-sm-10">
                     <input asp-for="CustomerPhone" class="form-control" />
                     <span asp-validation-for="CustomerPhone" class="text-danger"></span>
@@ -99,7 +99,7 @@
 
 <br />
 <div>
-    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to Customers List</a>
 </div>
 
 @section Scripts {

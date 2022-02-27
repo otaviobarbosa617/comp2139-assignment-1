@@ -44,7 +44,7 @@ namespace Comp2139_Assignment1.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(products);
+            return Create();
         }
 
         // GET: Products/Edit/5

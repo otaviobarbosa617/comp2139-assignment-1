@@ -5,7 +5,7 @@
 
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col">
         <form asp-action="@ViewData["Title"]">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             @if(title == "Edit")
@@ -13,7 +13,7 @@
                 <input type="hidden" asp-for="ProductId" />
             }
             <div class="form-group row">
-                <label asp-for="ProductCode" class="col-sm-2 col-form-label">Product Code</label>
+                <label asp-for="ProductCode" class="col-sm-2 col-form-label">Product Code:</label>
                 <div class="col-sm-10">
                     <input asp-for="ProductCode" class="form-control" />
                     <span asp-validation-for="ProductCode" class="text-danger"></span>
@@ -22,7 +22,7 @@
 
             <br />
             <div class="form-group row">
-                <label asp-for="ProductName" class="col-sm-2 col-form-label">Product Name</label>
+                <label asp-for="ProductName" class="col-sm-2 col-form-label">Product Name:</label>
                 <div class="col-sm-10">
                     <input asp-for="ProductName" class="form-control" />
                     <span asp-validation-for="ProductName" class="text-danger"></span>
@@ -31,7 +31,7 @@
 
             <br />
             <div class="form-group row">
-                <label asp-for="ProductPrice" class="col-sm-2 col-form-label">Product Price</label>
+                <label asp-for="ProductPrice" class="col-sm-2 col-form-label">Product Price:</label>
                 <div class="col-sm-10">
                     <input asp-for="ProductPrice" class="form-control" />
                     <span asp-validation-for="ProductPrice" class="text-danger"></span>
@@ -40,7 +40,7 @@
 
             <br />
             <div class="form-group row">
-                <label asp-for="ProductReleaseDate" class="col-sm-2 col-form-label">Product Release Date</label>
+                <label asp-for="ProductReleaseDate" class="col-sm-2 col-form-label">Product Release Date:</label>
                 <div class="col-sm-10">
                     <input asp-for="ProductReleaseDate.Date" class="form-control" />
                     <span asp-validation-for="ProductReleaseDate" class="text-danger"></span>

@@ -7,8 +7,8 @@
 <h1>Incident Manager</h1>
 
 <br />
-<table class="table">
-    <thead>
+<table class="table table-striped">
+    <thead class="thead-light">
         <tr>
             <th>Customer</th>
             <th>Product</th>
@@ -40,9 +40,7 @@
                 @Html.DisplayFor(modelItem => item.Technician.TechnicianName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IncidentDateOpened.Day)/
-                @Html.DisplayFor(modelItem => item.IncidentDateOpened.Month)/
-                @Html.DisplayFor(modelItem => item.IncidentDateOpened.Year)
+                @Html.DisplayFor(modelItem => item.IncidentDateOpened.Day)/@Html.DisplayFor(modelItem => item.IncidentDateOpened.Month)/@Html.DisplayFor(modelItem => item.IncidentDateOpened.Year)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IncidentDateClosed)

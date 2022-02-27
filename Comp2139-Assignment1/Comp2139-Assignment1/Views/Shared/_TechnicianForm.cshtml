@@ -4,7 +4,7 @@
 }
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="col">
         <form asp-action="@ViewData["Title"]">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             @if(title == "Edit")
@@ -53,7 +53,7 @@
 
 <br />
 <div>
-    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to Technician List</a>
 </div>
 
 @section Scripts {

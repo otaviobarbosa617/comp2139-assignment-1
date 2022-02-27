@@ -10,8 +10,8 @@
 
 
 
-<table class="table">
-    <thead>
+<table class="table table-striped">
+    <thead class="thead-light">
         <tr>
             <th>Code</th>
             <th>Name</th>
@@ -30,10 +30,10 @@
                 @Html.DisplayFor(modelItem => item.ProductName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ProductPrice)
+                $@Html.DisplayFor(modelItem => item.ProductPrice)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ProductReleaseDate)
+                @Html.DisplayFor(modelItem => item.ProductReleaseDate.Day)/@Html.DisplayFor(modelItem => item.ProductReleaseDate.Month)/@Html.DisplayFor(modelItem => item.ProductReleaseDate.Year)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ProductId" class="btn btn-primary">Edit</a>

@@ -5,7 +5,7 @@
 
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col">
         <form asp-action=@ViewData["Title"]>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             @if(title == "Edit")
@@ -16,10 +16,6 @@
             <br />
             <div class="form-group row">
                 <label asp-for="Customer" class="col-sm-2 col-form-label">Client Name:</label>
-                @*@{
-                    SelectList customer = ViewBag.CustomerId;
-                    var currentlySelectedIndex = 0; // Currently selected index (usually will come from model)
-                }*@
                 @if(title == "Create")
                 {
                     <div class="col-sm-10">
@@ -129,6 +125,7 @@
                 {
                  <input type="reset" class="btn btn-danger" />   
                 }
+
             </div>
         </form>
     </div>
@@ -136,7 +133,7 @@
 
 <br />
 <div>
-    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to Incidents List</a>
 </div>
 
 @section Scripts {
