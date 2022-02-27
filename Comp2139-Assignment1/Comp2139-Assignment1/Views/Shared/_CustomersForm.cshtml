@@ -62,7 +62,7 @@
             <div class="form-group row">
                 <label asp-for="CustomerCountry" class="col-sm-2 col-form-label">Country:</label>
                 <div class="col-sm-10">
-                    <input asp-for="CustomerCountry" class="form-control" />
+                    <select asp-for="CustomerCountry" class="form-control" asp-items="@ViewBag.CustomerCountry"></select>
                     <span asp-validation-for="CustomerCountry" class="text-danger"></span>
                 </div>
             </div>

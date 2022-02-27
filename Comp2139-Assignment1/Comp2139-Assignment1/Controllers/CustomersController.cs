@@ -28,6 +28,7 @@ namespace Comp2139_Assignment1.Controllers
         // GET: Customers/Create
         public IActionResult Create()
         {
+            ViewData["CustomerCountry"] = new SelectList(_context.Customers, "CustomerCountry", "CustomerCountry");
             return View();
         }
 
