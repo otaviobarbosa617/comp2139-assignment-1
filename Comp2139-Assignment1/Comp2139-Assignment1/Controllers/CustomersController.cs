@@ -23,7 +23,7 @@ namespace Comp2139_Assignment1.Controllers
         // GET: Customers/Create
         public IActionResult Create()
         {
-            SelectCountry();
+            ViewData["CustomerCountry"] = new SelectList(_context.Customers, "CustomerCountry", "CustomerCountry");
             return View();
         }
 
@@ -122,21 +122,6 @@ namespace Comp2139_Assignment1.Controllers
         private bool CustomersExists(int id)
         {
             return _context.Customers.Any(e => e.CustomerId == id);
-        }
-
-        public ActionResult SelectCountry()
-        {
-            List<SelectListItem> countries = new List<SelectListItem>();
-            //foreach (var customers in _context.Customers)
-            //{
-            //    countries.Add(new SelectListItem { Text = customers.CustomerCountry, Value = customers.CustomerCountry });
-            //}
-            //Hardcoded because couldn't make distinct work.
-            countries.Add(new SelectListItem { Text = "Canada", Value = "Canada" });
-            countries.Add(new SelectListItem { Text = "USA", Value = "USA" });
-            countries.Add(new SelectListItem { Text = "Mexico", Value = "Mexico" });
-            ViewBag.Country = countries;
-            return View();
         }
     }
 }
