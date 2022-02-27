@@ -84,7 +84,8 @@ namespace Comp2139_Assignment1.Models
                     TechnicianId = 1,
                     IncidentTitle = "Fix Login",
                     IncidentDescription = "Create separated logins for users and admins",
-                    IncidentDateOpened = DateTime.Today
+                    IncidentDateOpened = DateTime.Today,
+                    IncidentDateClosed = DateTime.Today,
                 },
                 new Incident
                 {
