@@ -127,6 +127,11 @@ namespace Comp2139_Assignment1.Controllers
         public ActionResult SelectCountry()
         {
             List<SelectListItem> countries = new List<SelectListItem>();
+            //foreach (var customers in _context.Customers)
+            //{
+            //    countries.Add(new SelectListItem { Text = customers.CustomerCountry, Value = customers.CustomerCountry });
+            //}
+            //Hardcoded because couldn't make distinct work.
             countries.Add(new SelectListItem { Text = "Canada", Value = "Canada" });
             countries.Add(new SelectListItem { Text = "USA", Value = "USA" });
             countries.Add(new SelectListItem { Text = "Mexico", Value = "Mexico" });
