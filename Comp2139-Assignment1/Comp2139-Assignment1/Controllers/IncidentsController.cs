@@ -70,8 +70,8 @@ namespace Comp2139_Assignment1.Controllers
                 return NotFound();
             }
             ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerFirstName");
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductName", incident.ProductId);
-            ViewData["TechnicianId"] = new SelectList(_context.Technicians, "TechnicianId", "TechnicianName", incident.TechnicianId);
+            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductName");
+            ViewData["TechnicianId"] = new SelectList(_context.Technicians, "TechnicianId", "TechnicianName");
             return View(incident);
         }
 
@@ -105,9 +105,9 @@ namespace Comp2139_Assignment1.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerFirstName", incident.CustomerId);
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductName", incident.ProductId);
-            ViewData["TechnicianId"] = new SelectList(_context.Technicians, "TechnicianId", "TechnicianName", incident.TechnicianId);
+            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerFirstName");
+            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductName");
+            ViewData["TechnicianId"] = new SelectList(_context.Technicians, "TechnicianId", "TechnicianName");
             return View(incident);
         }
 

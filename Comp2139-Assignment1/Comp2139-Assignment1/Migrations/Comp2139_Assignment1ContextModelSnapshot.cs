@@ -137,6 +137,7 @@ namespace Comp2139_Assignment1.Migrations
                         {
                             IncidentId = 1,
                             CustomerId = 1,
+                            IncidentDateClosed = new DateTime(2022, 2, 27, 0, 0, 0, 0, DateTimeKind.Local),
                             IncidentDateOpened = new DateTime(2022, 2, 27, 0, 0, 0, 0, DateTimeKind.Local),
                             IncidentDescription = "Create separated logins for users and admins",
                             IncidentTitle = "Fix Login",

@@ -123,7 +123,7 @@ namespace Comp2139_Assignment1.Migrations
             migrationBuilder.InsertData(
                 table: "Incidents",
                 columns: new[] { "IncidentId", "CustomerId", "IncidentDateClosed", "IncidentDateOpened", "IncidentDescription", "IncidentTitle", "ProductId", "TechnicianId" },
-                values: new object[] { 1, 1, null, new DateTime(2022, 2, 27, 0, 0, 0, 0, DateTimeKind.Local), "Create separated logins for users and admins", "Fix Login", 1, 1 });
+                values: new object[] { 1, 1, new DateTime(2022, 2, 27, 0, 0, 0, 0, DateTimeKind.Local), new DateTime(2022, 2, 27, 0, 0, 0, 0, DateTimeKind.Local), "Create separated logins for users and admins", "Fix Login", 1, 1 });
 
             migrationBuilder.InsertData(
                 table: "Incidents",
