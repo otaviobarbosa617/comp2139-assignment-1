@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Comp2139_Assignment1.Models
+namespace GBCSporting_OJO.Models
 {
     public class Customers
     {

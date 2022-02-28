@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 
 
-namespace Comp2139_Assignment1.Controllers
+namespace GBCSporting_OJO.Controllers
 {
     public class HomeController : Controller
     {

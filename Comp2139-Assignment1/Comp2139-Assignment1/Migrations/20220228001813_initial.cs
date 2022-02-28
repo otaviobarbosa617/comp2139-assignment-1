@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Comp2139_Assignment1.Migrations
+namespace GBCSporting_OJO.Migrations
 {
     public partial class initial : Migration
     {

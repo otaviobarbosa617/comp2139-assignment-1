@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Comp2139_Assignment1.Models;
+using GBCSporting_OJO.Models;
 
-namespace Comp2139_Assignment1.Controllers
+namespace GBCSporting_OJO.Controllers
 {
     public class IncidentsController : Controller
     {
-        private readonly Comp2139_Assignment1Context _context;
+        private readonly GBCSporting_OJOContext _context;
 
-        public IncidentsController(Comp2139_Assignment1Context context)
+        public IncidentsController(GBCSporting_OJOContext context)
         {
             _context = context;
         }

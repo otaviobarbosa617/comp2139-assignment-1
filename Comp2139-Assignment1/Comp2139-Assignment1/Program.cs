@@ -1,10 +1,10 @@
-using Comp2139_Assignment1.Models;
+using GBCSporting_OJO.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<Comp2139_Assignment1Context>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("Comp2139_Assignment1Context")));
+builder.Services.AddDbContext<GBCSporting_OJOContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("GBCSporting_OJOContext")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

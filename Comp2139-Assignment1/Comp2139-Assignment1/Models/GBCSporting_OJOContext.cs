@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Comp2139_Assignment1.Models
+namespace GBCSporting_OJO.Models
 {
-    public class Comp2139_Assignment1Context : DbContext
+    public class GBCSporting_OJOContext : DbContext
     {
-        public Comp2139_Assignment1Context(DbContextOptions<Comp2139_Assignment1Context> options)
+        public GBCSporting_OJOContext(DbContextOptions<GBCSporting_OJOContext> options)
             : base(options)
         {
         }
